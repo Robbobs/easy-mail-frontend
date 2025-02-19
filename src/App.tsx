@@ -37,7 +37,7 @@ function App() {
   const keyFn = (fruit: Fruit) => fruit.name;
 
   return (
-    <div className="w-full h-full bg-gray-900 p-5 flex justify-center">
+    <div className="p-5 flex justify-center">
       <Table data={data} config={config} keyFn={keyFn} />
     </div>
   );
