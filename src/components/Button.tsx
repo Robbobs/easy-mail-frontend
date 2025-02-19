@@ -32,19 +32,21 @@ export default function Button({
     }
     const classes = twMerge(
         classnames(rest.className, "flex gap-2 items-center px-3 py-1.5 border", {
-            "border-gray-300 bg-gray-300 hover:bg-gray-600 text-black": primary,
-            "border-blue-500 bg-blue-500 hover:bg-gray-700 text-white": secondary,
-            "border-teal-500 bg-teal-500 hover:bg-teal-700 text-white": success,
-            "border-amber-500 bg-amber-500 hover:bg-amber-700 text-white": warning,
-            "border-red-500 bg-red-500 hover:bg-red-700 text-white": danger,
-            "rounded-full": rounded,
-            "bg-transparent": outline,
+            "border-gray-300 bg-gray-300 hover:bg-gray-600 hover:border-gray-600 text-black": primary,
+            "border-blue-500 bg-blue-500 hover:bg-blue-700 hover:border-blue-700 text-white": secondary,
+            "border-teal-500 bg-teal-500 hover:bg-teal-700 hover:border-teal-700 text-white": success,
+            "border-amber-500 bg-amber-500 hover:bg-amber-700 hover:border-amber-700 text-white": warning,
+            "border-red-500 bg-red-500 hover:bg-red-700 hover:border-red-700 text-white": danger,
 
-            "text-white": outline && primary,
-            "text-blue-500": outline && secondary,
-            "text-teal-500": outline && success,
-            "text-amber-500": outline && warning,
-            "text-red-500": outline && danger
+            "rounded-full": rounded,
+
+            "bg-transparent hover:bg-transparent": outline,
+
+            "text-white hover:text-gray-600": outline && primary,
+            "text-blue-500 hover:text-blue-600": outline && secondary,
+            "text-teal-500 hover:text-teal-600": outline && success,
+            "text-amber-500 hover:text-amber-600": outline && warning,
+            "text-red-500 hover:text-red-600": outline && danger
         })
     );
     
