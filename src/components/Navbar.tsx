@@ -20,7 +20,7 @@ export default function Navbar(){
     }
 
     return (
-        <div className="w-full h-max-[40px]">
+        <div className="w-full max-h-[20px]">
             <Panel className="flex flex-row justify-between">
                 <h1 className="text-4xl">
                     Easy Mail
