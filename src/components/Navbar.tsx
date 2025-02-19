@@ -1,7 +1,7 @@
-import Dropdown, { Option } from "./Dropdown";
+import Link from "./Link";
 import Panel from "./Panel";
 import Button from "./Button";
-import Link from "./Link";
+import Dropdown, { Option } from "./Dropdown";
 
 export default function Navbar(){
 
@@ -16,10 +16,6 @@ export default function Navbar(){
         }
     ];
 
-    const handleClick = (option: Option) => {
-        console.log('selected:', option);
-    }
-
     return (
         <div className="w-full max-h-[20px]">
             <Panel className="flex flex-row items-center justify-between">
@@ -28,14 +24,19 @@ export default function Navbar(){
                 </Link>
 
                 <div className="shadow-lg relative flex flex-row">
-                    <Dropdown options={email} label={'Emails'} onChange={handleClick} className='text-blue-500' /> 
+                    <Dropdown 
+                        options={email} 
+                        label={'Emails'} 
+                        onChange={(option: Option) => console.log('selected:', option)} 
+                        className='text-blue-500' 
+                    /> 
                 </div>
 
-                <Link className="" to={'/recipients'}>
+                <Link to={'/recipients'}>
                     Recipients
                 </Link>
 
-                <Link className="" to={'/groups'}>
+                <Link to={'/groups'}>
                     Groups
                 </Link>
 
