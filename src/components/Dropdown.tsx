@@ -12,7 +12,7 @@ interface DropdownProps {
     options: Option[];
     label?: string | number;
     onChange: (option: Option) => void;
-    className: string;
+    className?: string;
 }
 
 export default function Dropdown({ options, label, onChange, className }: DropdownProps) {
