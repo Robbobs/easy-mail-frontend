@@ -11,8 +11,12 @@ export default function Navbar(){
             value: '/send-email',
         },
         {
+            label: 'Sent emails',
+            value: 'sent-emails'
+        },
+        {
             label: 'Write an email',
-            value: '/write-email'
+            value: '/write-email-template'
         }
     ];
 

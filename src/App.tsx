@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 function App() {
   
   return (
-    <div>
+    <div className="h-screen w-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/stay-current-with-email_1300_867.png')" }}>
       <Navbar />
     </div>
   );
