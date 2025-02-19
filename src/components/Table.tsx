@@ -11,7 +11,7 @@ interface TableProps<T> {
     data: T[];
     config: Config<T>[];
     keyFn: (item: T) => string | number;
-  }
+}
 
 function Table<T>({ data, config, keyFn }: TableProps<T>) {
     const renderedHeaders = config.map((header) =>{
