@@ -1,56 +1,46 @@
-import Button from "./components/Button"
+import Table, { Config } from "./components/Table";
 
-function App() {
-
-  return (
-    <div className="w-full h-full bg-black">
-      <Button primary>
-        butaum
-      </Button>
-      <Button secondary>
-        butaum
-      </Button>
-      <Button success>
-        butaum
-      </Button>
-      <Button warning>
-        butaum
-      </Button>
-      <Button danger>
-        butaum
-      </Button>
-      <Button primary rounded>
-        butaum
-      </Button>
-      <Button secondary rounded>
-        butaum
-      </Button>
-      <Button success rounded>
-        butaum
-      </Button>
-      <Button warning rounded>
-        butaum
-      </Button>
-      <Button danger rounded>
-        butaum
-      </Button>
-      <Button primary rounded outline>
-        butaum
-      </Button>
-      <Button secondary rounded outline>
-        butaum
-      </Button>
-      <Button success rounded outline>
-        butaum
-      </Button>
-      <Button warning rounded outline>
-        butaum
-      </Button>
-      <Button danger rounded outline>
-        butaum
-      </Button>
-    </div>
-  )
+interface Fruit {
+  name: string;
+  color: string;
+  score: number;
 }
 
-export default App
+function App() {
+  const data: Fruit[] = [
+    { name: "Pêra", color: "bg-lime-200", score: 1 },
+    { name: "Uva", color: "bg-violet-600", score: 2 },
+    { name: "Maçã", color: "bg-red-600", score: 3 },
+    { name: "Banana", color: "bg-yellow-300", score: 4 },
+    { name: "Manga", color: "bg-amber-600", score: 5 },
+  ];
+
+  const config: Config<Fruit>[] = [
+    {
+      label: "Fruits",
+      render: (fruit: Fruit) => fruit.name,
+      sortValue: (fruit: Fruit) => fruit.name,
+    },
+    {
+      label: "Color",
+      render: (fruit: Fruit) => (
+        <div className={`p-3 m-2 ${fruit.color}`}>{fruit.color}</div>
+      ),
+    },
+    {
+      label: "Score",
+      render: (fruit: Fruit) => fruit.score,
+      sortValue: (fruit: Fruit) => fruit.score,
+    },
+  ];
+
+  const keyFn = (fruit: Fruit) => fruit.name;
+
+  return (
+    <div className="w-full h-full bg-gray-900 p-5 flex justify-center">
+      <Table data={data} config={config} keyFn={keyFn} />
+    </div>
+  );
+}
+
+export default App;
