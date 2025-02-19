@@ -1,24 +1,19 @@
 import { ReactNode } from "react";
 import classNames from "classnames";
-import { useNavigate, useLocation } from "react-router-dom";
-
 
 interface LinkProps {
     to: string;
     children: ReactNode;
-    className: string;
-    activeClassName: boolean;
+    className?: string;
+    activeClassName?: boolean;
 }
 
 function Link({ to, children, className, activeClassName }: LinkProps) {
-    const navigate = useNavigate();
-    const location = useLocation();
-
   const classes = classNames(
-    'text-blue-500', 
-    className,
-    location.pathname === to && activeClassName
-  );
+        'text-blue-500',
+        className,
+        location.pathname === to && activeClassName
+    );
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (e.metaKey || e.ctrlKey) {
@@ -26,7 +21,7 @@ function Link({ to, children, className, activeClassName }: LinkProps) {
     }
      
     e.preventDefault();
-    navigate(to);
+    // navigate(to);
   };
 
   return <a className={classes} href={to} onClick={handleClick}>{children}</a>
