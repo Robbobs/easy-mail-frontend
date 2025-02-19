@@ -2,9 +2,11 @@ import Link from "./Link";
 import Panel from "./Panel";
 import Button from "./Button";
 import Dropdown, { Option } from "./Dropdown";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar(){
 
+    const navigate = useNavigate();
     const email: Option[] = [
         {
             label: 'Send email',
@@ -21,18 +23,18 @@ export default function Navbar(){
     ];
 
     return (
-        <div className="w-full max-h-[20px] pt-5">
-            <Panel className="flex flex-row items-center justify-between">
+        <div className="w-full max-h-[20px] py-5">
+            <Panel className="flex flex-row items-center justify-between shadow-lg">
                 <Link className="text-gray-300 text-4xl" to={'/'}>
                     Easy Mail
                 </Link>
 
                 <div className="flex flex-row items-center gap-30">
-                    <div className="shadow-lg relative flex flex-row">
+                    <div className="relative flex flex-row">
                         <Dropdown 
                             options={email} 
                             label={'Emails'} 
-                            onChange={(option: Option) => console.log('selected:', option)}  
+                            onChange={(option: Option) => navigate(option.value.toString())}
                         /> 
                     </div>
 

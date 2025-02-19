@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 
 interface LinkProps {
     to: string;
@@ -9,6 +10,7 @@ interface LinkProps {
 }
 
 function Link({ to, children, className, activeClassName }: LinkProps) {
+  const navigate = useNavigate();
   const classes = classNames(
         'text-blue-500',
         className,
@@ -21,7 +23,7 @@ function Link({ to, children, className, activeClassName }: LinkProps) {
     }
      
     e.preventDefault();
-    // navigate(to);
+    navigate(to);
   };
 
   return <a className={classes} href={to} onClick={handleClick}>{children}</a>

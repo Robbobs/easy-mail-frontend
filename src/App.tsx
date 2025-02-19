@@ -1,15 +1,51 @@
-import Navbar from "./components/Navbar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RecipientsPage from "./pages/RecipientsPage";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+import GroupsPage from "./pages/GroupsPage";
+import HomePage from "./pages/HomePage";
+import Root from "./pages/Root";
 
 function App() {
   
-  return (
-    <div className="h-screen w-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/stay-current-with-email_1300_867.png')" }}>
-      <div className="container mx-auto">
-        <Navbar />
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+          loader: undefined,
+        },
+        {
+          path: "/signIn",
+          element: <SignInPage />,
+          loader: undefined,
+        },
+        {
+          path: "/signUp",
+          element: <SignUpPage />,
+          loader: undefined,
+        },
+        {
+          path: "/recipients",
+          element: <RecipientsPage />,
+          loader: undefined,
+        },
+        {
+          path: "/groups",
+          element: <GroupsPage />,
+          loader: undefined,
+        },
+      ]
+    },
+  ])
 
-      </div>
-    </div>
+
+  return (
+    <RouterProvider router={router} />
   );
 }
-
+  
 export default App;
