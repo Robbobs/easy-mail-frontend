@@ -1,5 +1,6 @@
 import Dropdown, { Option } from "./Dropdown";
 import Panel from "./Panel";
+import Button from "./Button";
 
 export default function Navbar(){
 
@@ -14,14 +15,24 @@ export default function Navbar(){
         }
     ];
 
-    const handleClick = () => {
-        console.log('hello world');
+    const handleClick = (option: Option) => {
+        console.log('selected:', option);
     }
 
     return (
-        <div className="w-full h-[40px]">
-            <Panel>
-                <Dropdown options={email} label={'Emails'} onChange={handleClick} />    
+        <div className="w-full h-max-[40px]">
+            <Panel className="flex flex-row justify-between">
+                <h1 className="text-4xl">
+                    Easy Mail
+                </h1>
+
+                <div className="relative flex flex-row">
+                    <Dropdown options={email} label={'Emails'} onChange={handleClick} /> 
+                </div>
+                
+                <Button primary rounded outline>
+                    logout
+                </Button>   
             </Panel>
         </div>
     )

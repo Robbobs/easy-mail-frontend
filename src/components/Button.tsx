@@ -31,7 +31,7 @@ export default function Button({
       );
     }
     const classes = twMerge(
-        classnames(rest.className, "flex gap-2 items-center px-3 py-1.5 border", {
+        classnames(rest.className, "flex gap-2 items-center px-5 py-1.5 border", {
             "border-gray-300 bg-gray-300 hover:bg-gray-600 hover:border-gray-600 text-black": primary,
             "border-blue-500 bg-blue-500 hover:bg-blue-700 hover:border-blue-700 text-white": secondary,
             "border-teal-500 bg-teal-500 hover:bg-teal-700 hover:border-teal-700 text-white": success,

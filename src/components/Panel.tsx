@@ -9,7 +9,7 @@ interface PanelProps extends HTMLAttributes<HTMLDivElement> {
 export default function Panel({ children, className, ...rest }: PanelProps) { 
   const finalClassNames = classnames(
     className,
-    'border rounded p-3 shadow bg-gray-800 w-full h-full',
+    'border rounded p-3 shadow bg-gray-800 w-auto h-auto',
   );
 
   return (
