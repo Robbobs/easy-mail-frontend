@@ -23,13 +23,13 @@ export default function Navbar(){
     ];
 
     return (
-        <div className="w-full max-h-[20px] py-5">
-            <Panel className="flex flex-row items-center justify-between shadow-lg">
+        <div className="w-full max-h-[20px] pt-5 pb-23">
+            <Panel className="px-20 flex flex-row items-center justify-between rounded-4xl shadow-lg" >
                 <Link className="text-gray-300 text-4xl" to={'/'}>
                     Easy Mail
                 </Link>
 
-                <div className="flex flex-row items-center gap-30">
+                <div className="flex flex-row items-center gap-20">
                     <div className="relative flex flex-row">
                         <Dropdown 
                             options={email} 
@@ -38,16 +38,16 @@ export default function Navbar(){
                         /> 
                     </div>
 
-                    <Link className="text-gray-300" to={'/recipients'}>
+                    <Link className="text-gray-300" activeClassName="border-b-3 border-teal-500 text-teal-500"  to={'/recipients'}>
                         Recipients
                     </Link>
 
-                    <Link className="text-gray-300" to={'/groups'}>
+                    <Link className="text-gray-300" activeClassName="border-b-3 border-teal-500 text-teal-500"  to={'/groups'}>
                         Groups
                     </Link>                
                 </div>
 
-                <Button className="text-gray-300" primary rounded outline>
+                <Button className="text-gray-300" danger rounded outline>
                     logout
                 </Button>   
             </Panel>

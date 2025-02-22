@@ -1,5 +1,5 @@
-import classnames from 'classnames';
 import { ReactNode, HTMLAttributes } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface PanelProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -7,10 +7,7 @@ interface PanelProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Panel({ children, className, ...rest }: PanelProps) { 
-  const finalClassNames = classnames(
-    className,
-    'rounded p-3 bg-gray-800 w-auto h-auto',
-  );
+  const finalClassNames = twMerge('rounded p-3 bg-gray-800 w-auto h-auto', className);
 
   return (
     <div {...rest} className={finalClassNames}>
