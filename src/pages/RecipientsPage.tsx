@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
 import Button from "../components/Button";
+import { IoPersonAdd } from "react-icons/io5";
 import Table, { Config } from "../components/Table";
 
 //TODO: Move recipient interface to a more apropriate place.
 interface Recipient {
     name: string,
-    email: string
+    email: string,
+    createdAt: string
 }
 
 export default function RecipientsPage(){
@@ -26,6 +28,10 @@ export default function RecipientsPage(){
         {
             label: 'Email',
             render: (recipient: Recipient) => recipient.email
+        },
+        {
+            label: 'Added in',
+            render: (recpient: Recipient) => recpient.createdAt
         }
     ];
 
@@ -33,11 +39,13 @@ export default function RecipientsPage(){
     const data: Recipient[] = [
         {
             name: 'Roberta',
-            email: 'robertatest@gmail.com'
+            email: 'robertatest@gmail.com',
+            createdAt: '24/07/2023'
         },
         {
             name: 'Rodrigo',
-            email: 'rodrigotest@gmail.com'
+            email: 'rodrigotest@gmail.com',
+            createdAt: '22/02/2024'
         }
     ];
 
@@ -50,13 +58,14 @@ export default function RecipientsPage(){
             <div className="w-full flex justify-between pb-10">
                 <h1 className="text-6xl text-center">Recipients Management</h1>
                 
-                <Button className="secondary outline rounded" onClick={() => setIsOpen(true)}>
+                <Button primary outline rounded onClick={() => setIsOpen(true)}>
+                    <IoPersonAdd />
                     New recipient
                 </Button>
                 { isOpen && modal }
             </div>
 
-            <div className="w-full mx-auto items-center">
+            <div className="flex justify-center">
                 <Table config={config} data={data} keyFn={keyFn} />
             </div>
         </div>

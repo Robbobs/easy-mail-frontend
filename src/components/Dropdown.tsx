@@ -41,13 +41,14 @@ export default function Dropdown({ options, label, onChange, className }: Dropdo
     });
 
     return (
-        <div onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)} className="w-48 relative">
+        <div onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)} className="w-32 relative">
             <Panel
                 className={classes}
             >
                 {label || "Select..."}
                 <GoChevronDown />
             </Panel>
+            
             {isOpen && (
                 <Panel className="absolute top-full w-full">
                     {renderedOption}

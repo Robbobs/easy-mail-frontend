@@ -27,7 +27,7 @@ function Table<T>({ data, config, keyFn }: TableProps<T>) {
         
         const renderedCells = config.map((column) => {
             return (
-                <td className="p-2" key={column.label}>
+                <td className="py-2 pr-20" key={column.label}>
                     {column.render(rowData)}
                 </td>
             );
@@ -42,7 +42,7 @@ function Table<T>({ data, config, keyFn }: TableProps<T>) {
     });
 
     return(
-        <table className="table-auto border-spacing-2">
+        <table className="table-auto border-spacing-2 text-left">
             <thead>
                 <tr className="border-b-2">
                     { renderedHeaders }
