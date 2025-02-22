@@ -1,7 +1,14 @@
 export default function SignUpPage() {
+
+    const handleSubmit = () => {
+        
+    }
+
     return(
         <div>
-            Sign Up
+            <form onSubmit={handleSubmit}>
+                <input type="text" />
+            </form>
         </div>
     )
 }
