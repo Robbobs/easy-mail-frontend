@@ -9,7 +9,7 @@ interface LinkProps {
     activeClassName?: string;
 }
 
-function Link({ to, children, className, activeClassName }: LinkProps) {
+export default function Link({ to, children, className, activeClassName }: LinkProps) {
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -30,6 +30,3 @@ function Link({ to, children, className, activeClassName }: LinkProps) {
 
   return <a className={classes} href={to} onClick={handleClick}>{children}</a>
 }
-
-export default Link;
-

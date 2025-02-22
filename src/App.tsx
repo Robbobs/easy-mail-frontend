@@ -16,27 +16,22 @@ function App() {
         {
           index: true,
           element: <HomePage />,
-          loader: undefined,
         },
         {
           path: "/signIn",
           element: <SignInPage />,
-          loader: undefined,
         },
         {
           path: "/signUp",
           element: <SignUpPage />,
-          loader: undefined,
         },
         {
           path: "/recipients",
           element: <RecipientsPage />,
-          loader: undefined,
         },
         {
           path: "/groups",
           element: <GroupsPage />,
-          loader: undefined,
         },
       ]
     },

@@ -1,15 +1,12 @@
 import { useState } from "react";
+import Table from "../components/Table";
 import Modal from "../components/Modal";
 import Button from "../components/Button";
+import { FaPencilAlt } from "react-icons/fa";
 import { IoPersonAdd } from "react-icons/io5";
-import Table, { Config } from "../components/Table";
-
-//TODO: Move recipient interface to a more apropriate place.
-interface Recipient {
-    name: string,
-    email: string,
-    createdAt: string
-}
+import { FaRegTrashCan } from "react-icons/fa6";
+import type { Config } from "../components/Table";
+import type { Recipient } from "../types/Recipients";
 
 export default function RecipientsPage(){
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -30,8 +27,25 @@ export default function RecipientsPage(){
             render: (recipient: Recipient) => recipient.email
         },
         {
+            label: 'Groups',
+            render: (recipient: Recipient) => recipient.groups
+        },
+        {
             label: 'Added in',
             render: (recpient: Recipient) => recpient.createdAt
+        },
+        {
+            label: 'Actions',
+            render: () => (
+                <div className="flex space-x-4">
+                    <button className="cursor-pointer">
+                        <FaPencilAlt />
+                    </button>
+                    <button className="cursor-pointer">
+                        <FaRegTrashCan />
+                    </button>
+                </div>
+            )
         }
     ];
 
@@ -40,12 +54,14 @@ export default function RecipientsPage(){
         {
             name: 'Roberta',
             email: 'robertatest@gmail.com',
+            groups: 'Kukinators, Mozinhus',
             createdAt: '24/07/2023'
         },
         {
             name: 'Rodrigo',
             email: 'rodrigotest@gmail.com',
-            createdAt: '22/02/2024'
+            groups: 'Mozinhus',
+            createdAt: '22/07/2023'
         }
     ];
 
