@@ -14,6 +14,9 @@ export default function RecipientsPage(){
 
     const modal = (
         <Modal onClose={() => setIsOpen(false)}>
+            <h1 className="text-6xl text-center">
+                Add a new recipient
+            </h1>
             <TextInput label="blablabla" />
         </Modal>
     )
