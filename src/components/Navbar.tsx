@@ -38,11 +38,11 @@ export default function Navbar(){
                         /> 
                     </div>
 
-                    <Link className="text-[#98abfc]" activeClassName="border-b-3 border-zinc-200 text-zinc-200"  to={'/recipients'}>
+                    <Link className="text-[#98abfc]" activeClassName="border-b-3 border-slate-500 text-slate-500"  to={'/recipients'}>
                         Recipients
                     </Link>
 
-                    <Link className="text-[#98abfc]" activeClassName="border-b-3 border-teal-500 text-teal-500"  to={'/groups'}>
+                    <Link className="text-[#98abfc]" activeClassName="border-b-3 border-slate-500 text-slate-500"  to={'/groups'}>
                         Groups
                     </Link>                
                 </div>
