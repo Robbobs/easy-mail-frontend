@@ -22,7 +22,7 @@ export default function Modal({ onClose, children, actionBar }: ModalProps){
 
     return ReactDOM.createPortal(
         <div className="text-gray-300">
-            <div onClick={onClose} className="fixed inset-0 backdrop-blur bg-[#1b2037]/35"></div>
+            <div onClick={onClose} className="fixed inset-0 backdrop-blur bg-[#98abfc]/50"></div>
             <div className="fixed inset-40 bg-gray-800 p-10 rounded">
                 <div className="flex flex-col justify-between h-full">
                     { children }

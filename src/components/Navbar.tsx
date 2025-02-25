@@ -25,7 +25,7 @@ export default function Navbar(){
     return (
         <div className="w-full max-h-[20px] pt-5 pb-23">
             <Panel className="px-20 flex flex-row items-center justify-between rounded-4xl shadow-lg" >
-                <Link className="text-gray-300 text-4xl" to={'/'}>
+                <Link className="text-[#98abfc] text-4xl" to={'/'}>
                     Easy Mail
                 </Link>
 
@@ -38,11 +38,11 @@ export default function Navbar(){
                         /> 
                     </div>
 
-                    <Link className="text-gray-300" activeClassName="border-b-3 border-teal-500 text-teal-500"  to={'/recipients'}>
+                    <Link className="text-[#98abfc]" activeClassName="border-b-3 border-zinc-200 text-zinc-200"  to={'/recipients'}>
                         Recipients
                     </Link>
 
-                    <Link className="text-gray-300" activeClassName="border-b-3 border-teal-500 text-teal-500"  to={'/groups'}>
+                    <Link className="text-[#98abfc]" activeClassName="border-b-3 border-teal-500 text-teal-500"  to={'/groups'}>
                         Groups
                     </Link>                
                 </div>

@@ -31,7 +31,7 @@ export default function Dropdown({ options, label, onChange, className }: Dropdo
     const renderedOption = options.map((option) => {
         return (
             <div 
-                className="hover:bg-gray-600 rounded cursor-pointer p-1" 
+                className="hover:bg-gray-700 cursor-pointer p-1" 
                 onClick={() => handleOptionClick(option)} 
                 key={option.value}
             >
@@ -50,7 +50,7 @@ export default function Dropdown({ options, label, onChange, className }: Dropdo
             </Panel>
             
             {isOpen && (
-                <Panel className="absolute top-full w-full">
+                <Panel className="absolute top-full w-full border-2 border-gray-850">
                     {renderedOption}
                 </Panel>
             )}

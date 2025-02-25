@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import classNames from "classnames";
 import { useLocation, useNavigate } from "react-router-dom";
+import { twMerge } from "tailwind-merge";
 
 interface LinkProps {
     to: string;
@@ -13,11 +14,10 @@ export default function Link({ to, children, className, activeClassName }: LinkP
   const navigate = useNavigate();
   const location = useLocation();
   
-  const classes = classNames(
-        'text-blue-500',
-        className,
-        location.pathname === to && activeClassName
-    );
+  const classes = twMerge(
+    'text-blue-500',
+    classNames(className, location.pathname === to && activeClassName)
+  );
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (e.metaKey || e.ctrlKey) {
