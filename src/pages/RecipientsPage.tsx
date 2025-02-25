@@ -32,7 +32,7 @@ export default function RecipientsPage(){
         },
         {
             label: 'Added in',
-            render: (recpient: Recipient) => recpient.createdAt
+            render: (recipient: Recipient) => recipient.created_at ? recipient.created_at.toString() : '-'
         },
         {
             label: 'Actions',
@@ -54,14 +54,13 @@ export default function RecipientsPage(){
         {
             name: 'Roberta',
             email: 'robertatest@gmail.com',
-            groups: 'Kukinators, Mozinhus',
-            createdAt: '24/07/2023'
+            groups: 'Kukinators, Mozinhus'
         },
         {
             name: 'Rodrigo',
             email: 'rodrigotest@gmail.com',
             groups: 'Mozinhus',
-            createdAt: '22/07/2023'
+            created_at: new Date()
         }
     ];
 

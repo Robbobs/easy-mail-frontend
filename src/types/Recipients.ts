@@ -1,6 +1,7 @@
-export interface Recipient {
+import { baseType } from "./base";
+
+export interface Recipient extends baseType {
     name: string,
     email: string,
     groups: string,
-    createdAt: string,
 }
