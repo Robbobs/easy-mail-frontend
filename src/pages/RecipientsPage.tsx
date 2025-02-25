@@ -7,13 +7,14 @@ import { IoPersonAdd } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
 import type { Config } from "../components/Table";
 import type { Recipient } from "../types/Recipients";
+import TextInput from "../components/Input";
 
 export default function RecipientsPage(){
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const modal = (
         <Modal onClose={() => setIsOpen(false)}>
-            kekeke
+            <TextInput label="blablabla" />
         </Modal>
     )
 
