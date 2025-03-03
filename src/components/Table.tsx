@@ -44,7 +44,7 @@ export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
     return(
         <table className="table-auto border-spacing-2 text-left">
             <thead>
-                <tr className="border-b-2">
+                <tr className="border-b-2 uppercase">
                     { renderedHeaders }
                 </tr>
             </thead>

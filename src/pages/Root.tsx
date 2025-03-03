@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar";
 export default function Root() {
 
     return(
-        <div className="bg-neutral-950 h-screen w-screen bg-cover bg-center bg-no-repeat text-[#98abfc]">
-            <div className="container mx-auto">
+        <div className="bg-[url(/stay-current-with-email_1300_867.png)] bg-cover">
+            <div className="bg-[#1b2037] h-screen w-screen container mx-auto px-30 text-[#98abfc] shadow-lg">
                 <Navbar />
                 <Outlet />
             </div>

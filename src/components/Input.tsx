@@ -14,7 +14,7 @@ export default function TextInput({label, inputClassName, labelClassName, ...res
     )
 
     const labelClasses = classNames(
-        'absolute left-0 -top-3.5 text-[#98abfc] text-sm',
+        'absolute left-0 -top-3.5 text-[#98abfc] text-sm uppercase font-bold',
         'peer-placeholder-shown:text-base peer-placeholder-shown:text-[#98abfc] peer-placeholder-shown:top-2 transition-all',
         'peer-focus:-top-3.5 peer-focus:text-[#98abfc] peer-focus:text-sm',
         labelClassName

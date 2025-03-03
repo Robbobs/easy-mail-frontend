@@ -7,7 +7,7 @@ interface PanelProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Panel({ children, className, ...rest }: PanelProps) { 
-  const finalClassNames = twMerge('rounded pb-3 pt-3 bg-gray-900 w-auto h-auto', className);
+  const finalClassNames = twMerge('rounded pb-3 pt-3 bg-slate-800 w-auto h-auto', className);
 
   return (
     <div {...rest} className={finalClassNames}>
