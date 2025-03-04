@@ -1,14 +1,11 @@
-export default function SignUpPage() {
+import RegistrationForm from "../components/ui/RegistrationForm"
 
-    const handleSubmit = () => {
-        
-    }
+
+export default function SignUpPage() {
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" />
-            </form>
+            <RegistrationForm/>
         </div>
     )
 }
