@@ -14,7 +14,7 @@ export interface TableProps<T> {
 }
 
 export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
-    const renderedHeaders = config.map((header) =>{
+    const renderedHeaders = config.map((header) => {
 
         if (header.header){
             return <Fragment key={header.label}>{header.header()}</Fragment>;
@@ -41,6 +41,7 @@ export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
         )
     });
 
+    
     return(
         <table className="table-auto border-spacing-2 text-left">
             <thead>

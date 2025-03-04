@@ -4,11 +4,11 @@ import type { Recipient } from "../../types/Recipients";
 export const recipientsApi = createApi({
     reducerPath: 'recipients',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://localhost:3000' }),
-    endpoints: (builder) => ({
+    endpoints: (builder) => {
         getRecipients: builder.query<Recipient, number>({
-            query: (userId) => `/recipients?userId=${userId}`
-        })
-    })
-})
+            query: () => `/recipients`
+        }),
+    },
+});
 
 export const { useGetRecipientsQuery } = recipientsApi;
