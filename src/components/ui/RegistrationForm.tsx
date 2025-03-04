@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import Input from "../Input";
+import InputField from "../InputField";
 import Button from "../Button";
 
 interface Inputs {

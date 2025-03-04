@@ -6,8 +6,8 @@ import { FaPencilAlt } from "react-icons/fa";
 import { IoPersonAdd } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
 import type { Config } from "../components/Table";
-import type { Recipient } from "../types/Recipients";
-import TextInput from "../components/Input";
+import type { Recipient } from "../types/Recipient";
+import InputField from "../components/InputField";
 
 export default function RecipientsPage(){
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -17,7 +17,8 @@ export default function RecipientsPage(){
             <h1 className="text-6xl text-center">
                 Add a new recipient
             </h1>
-            <TextInput label="blablabla" />
+            <InputField label="Name"/>
+            <InputField label="Email" />
         </Modal>
     )
 

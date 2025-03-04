@@ -1,12 +1,12 @@
 import classNames from "classnames";
 
-interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string;
     inputClassName?: string;
     labelClassName?: string;
   }
 
-export default function TextInput({label, inputClassName, labelClassName, ...rest}: TextInputProps){
+export default function InputField({label, inputClassName, labelClassName, ...rest}: InputFieldProps){
     const inputClasses = classNames(
         'peer placeholder-transparent h-10 w-full border-b-2 border-[#98abfc] text-[#98abfc] bg-transparent',
         'focus:outline-none focus:border-violet-500',

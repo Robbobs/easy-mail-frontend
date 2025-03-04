@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Recipient } from "../../types/Recipients";
+import type { Recipient } from "../../types/Recipient";
 
 export const recipientsApi = createApi({
     reducerPath: 'recipients',
