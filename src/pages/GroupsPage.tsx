@@ -7,7 +7,6 @@ import { FaPencilAlt } from "react-icons/fa";
 import { IoPersonAdd } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
 import type { Config } from "../components/Table";
-import type { Recipient } from "../types/Recipient";
 import InputField from "../components/InputField";
 
 
@@ -21,7 +20,9 @@ export default function GroupsPage(){
             </h1>
             <InputField label="Name"/>
             <InputField label="Members" />
-            <Button />
+            <Button className="" rounded> 
+                Add
+            </Button>
         </Modal>
     )
 
@@ -57,12 +58,35 @@ export default function GroupsPage(){
     const data: Group[] = [
         {
             title: 'Grupo dos Kukis',
-            members: ['Roberta', 'Rodrigo', 'Toi', 'Dumbledore'],
+            members: [
+                {
+                    name: 'Roberta',
+                    email: 'roberta@gmail.com',
+                },
+                {
+                    name: 'Rodrigo',
+                    email: 'rodrigo@gmail.com'
+                },
+                {
+                    name: 'Toi',
+                    email: 'toi@gmail.com'
+                }
+                
+            ],
             created_at: new Date(),
         },
         {
             title: 'Grupo dos mocoiongos',
-            members: ['Roberta', 'Rodrigo'],
+            members: [
+                {
+                    name: 'Roberta',
+                    email: 'roberta@gmail.com',
+                },
+                {
+                    name: 'Rodrigo',
+                    email: 'rodrigo@gmail.com'
+                },
+            ],
             created_at: new Date(),
         }
     ];
