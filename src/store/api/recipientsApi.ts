@@ -4,7 +4,7 @@ import type { Recipient } from "../../types/Recipient";
 
 export const recipientsApi = createApi({
     reducerPath: 'recipients',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://localhost:8000' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api' }),
     endpoints: (builder) => ({
         getRecipients: builder.query<PaginatedResponse<Recipient[]>, void>({
             query: () => `/recipient`,

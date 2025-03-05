@@ -3,7 +3,7 @@ import type { Account } from "../../types/Account";
 
 export const accountApi = createApi({
     reducerPath: 'account',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://localhost:8000' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api' }),
     endpoints: (builder) => ({
         createAccount: builder.mutation<Account, Partial<Account>>({
             query: (newAccount) => ({
