@@ -9,13 +9,14 @@ interface Inputs {
   password: string | number,
 };
 
-export default function RegistrationForm() {
+export default function 
+RegistrationForm() {
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
 
   return(
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="max-w-[800px] flex flex-row gap-6 py-5">
+      <div className="flex flex-row gap-6 py-5">
         <div className="w-full flex flex-col">
           <InputField label="Name" {...register("name", { required: true })} />
           {errors.name && <span>Name is required</span>}
@@ -25,11 +26,11 @@ export default function RegistrationForm() {
           {errors.surname && <span>Surname is required</span>}
         </div>
       </div>
-      <div className="max-w-[800px] py-5 w-full flex flex-col">
+      <div className="py-5 w-full flex flex-col">
         <InputField label="E-mail" {...register("email", { required: true })} />
         {errors.email && <span>Email is required</span>}
       </div>
-      <div className="max-w-[800px] flex flex-row gap-6 py-5">
+      <div className="flex flex-row gap-6 py-5">
         <div className="w-full flex flex-col">
           <InputField type="password" label="Password" {...register("password", { required: true })} />
           {errors.password && <span>Password is required</span>}
