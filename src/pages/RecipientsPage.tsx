@@ -43,10 +43,10 @@ export default function RecipientsPage(){
             label: 'Actions',
             render: () => (
                 <div className="flex space-x-4">
-                    <button className="cursor-pointer">
+                    <button className="cursor-pointer hover:text-violet-500">
                         <FaPencilAlt />
                     </button>
-                    <button className="cursor-pointer">
+                    <button className="cursor-pointer hover:text-violet-500">
                         <FaRegTrashCan />
                     </button>
                 </div>

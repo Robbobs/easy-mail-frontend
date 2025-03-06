@@ -43,7 +43,7 @@ export default function Button({
 
             "bg-transparent hover:bg-transparent": outline,
 
-            "text-[#98abfc] hover:text-[#5271fa]": outline && primary,
+            "text-[#98abfc] hover:text-violet-500": outline && primary,
             "text-blue-500 hover:text-blue-700": outline && secondary,
             "text-teal-500 hover:text-teal-700": outline && success,
             "text-amber-500 hover:text-amber-700": outline && warning,
