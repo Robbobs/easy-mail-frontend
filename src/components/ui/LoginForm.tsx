@@ -1,17 +1,18 @@
 import { useLoginMutation } from "../../store/api/authApi";
 import { useForm, SubmitHandler } from "react-hook-form";
+import type { Account } from "../../types/Account";
+import { useNavigate } from "react-router-dom";
 import InputField from "../InputField";
 import Button from "../Button";
-import type { Account } from "../../types/Account";
 
 export default function LoginForm() {
   const { register, handleSubmit, formState: { errors } } = useForm<Account>();
-  
-   const [login, { error }] = useLoginMutation();
+  const [login] = useLoginMutation();
+  const navigate = useNavigate()
   
   const onSubmit: SubmitHandler<Account> = (account: Account) => {
-    login(account)
-    console.log(error);
+    login(account);
+    navigate("/recipients");
   };
 
   return(

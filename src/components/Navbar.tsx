@@ -3,10 +3,17 @@ import Panel from "./Panel";
 import Button from "./Button";
 import Dropdown, { Option } from "./Dropdown";
 import { useNavigate } from "react-router-dom";
+import { useLogoutMutation } from "../store/api/authApi";
 
 export default function Navbar(){
-
     const navigate = useNavigate();
+    const [logout] = useLogoutMutation();
+
+    const handleLogout = () => {
+        logout()
+        navigate("/")
+    }
+
     const email: Option[] = [
         {
             label: 'Send email',
@@ -14,7 +21,7 @@ export default function Navbar(){
         },
         {
             label: 'Sent emails',
-            value: 'sent-emails'
+            value: '/sent-emails'
         },
         {
             label: 'Write an email',
@@ -47,7 +54,10 @@ export default function Navbar(){
                     </Link>                
                 </div>
 
-                <Button className="text-gray-300" danger rounded outline>
+                <Button
+                    onClick={handleLogout}
+                    className="text-gray-300" danger rounded outline
+                >
                     logout
                 </Button>   
             </Panel>

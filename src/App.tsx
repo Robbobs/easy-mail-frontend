@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { authLoader } from "./pages/loaders/authLoader";
 import RecipientsPage from "./pages/RecipientsPage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
@@ -13,26 +14,11 @@ function App() {
       path: "/",
       element: <Root />,
       children: [
-        {
-          index: true,
-          element: <HomePage />,
-        },
-        {
-          path: "/signIn",
-          element: <SignInPage />,
-        },
-        {
-          path: "/signUp",
-          element: <SignUpPage />,
-        },
-        {
-          path: "/recipients",
-          element: <RecipientsPage />,
-        },
-        {
-          path: "/groups",
-          element: <GroupsPage />,
-        },
+        { index: true, element: <HomePage /> },
+        { path: "/signIn", element: <SignInPage /> },
+        { path: "/signUp", element: <SignUpPage /> },
+        { path: "/recipients", element: <RecipientsPage />, loader: authLoader },
+        { path: "/groups", element: <GroupsPage />, loader: authLoader },
       ]
     },
   ])

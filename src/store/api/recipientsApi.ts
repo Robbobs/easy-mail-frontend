@@ -7,12 +7,18 @@ export const recipientsApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api' }),
     endpoints: (builder) => ({
         getRecipients: builder.query<PaginatedResponse<Recipient[]>, void>({
-            query: () => `/recipient`,
+            query: () =>  ({
+              url: `/recipient`,
+              credentials: 'include' 
+            })
         }),
         getRecipient: builder.query<Recipient, number>({
-            query: (id) => `/recipient/${id}`,
+            query: (id) => ({
+                url: `/recipient/${id}`,
+                credentials: 'include'
+            }) 
         })
     }),
 });
 
-export const { useGetRecipientsQuery } = recipientsApi;
+export const { useGetRecipientQuery, useGetRecipientsQuery } = recipientsApi;

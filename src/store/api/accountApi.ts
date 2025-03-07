@@ -10,6 +10,7 @@ export const accountApi = createApi({
                 url: `/account`,
                 method: "POST",
                 body: newAccount,
+                credentials: 'include',
                 headers: { "Content-Type": "application/json" },
             }),
         }),
