@@ -1,5 +1,6 @@
 import RegistrationForm from "../components/ui/RegistrationForm"
 import Title from "../components/Title"
+import Link from "../components/Link";
 
 export default function SignUpPage() {
     return(
@@ -13,9 +14,9 @@ export default function SignUpPage() {
 
                 <p className="text-center text-gray-600 mt-4">
                     Already have an account? {" "}
-                    <a href="#" className="text-indigo-600 font-semibold hover:underline">
+                    <Link to="/signIn" className="text-indigo-600 font-semibold hover:underline">
                         Sign in
-                    </a>
+                    </Link>
                 </p>
             </div>
 
