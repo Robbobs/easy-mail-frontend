@@ -8,7 +8,7 @@ export default function Root() {
     useCheckSessionQuery();
 
     return (
-        <div className="bg-[url(/stay-current-with-email_1300_867.png)] bg-cover">
+        <div className="bg-[url(/src/assets/stay-current-with-email_1300_867.png)] bg-cover">
             <div className="bg-[#1b2037] h-screen w-screen container mx-auto text-[#98abfc] shadow-lg">
                 {isAuthenticated && <Navbar />}
                 <Outlet />
