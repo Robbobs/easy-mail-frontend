@@ -20,7 +20,7 @@ export default function SignUpPage() {
                 </p>
             </div>
 
-            <div className="hiden md:flex w-1/2 bg-indigo-50 items-center justify-center">
+            <div className="hidden md:flex w-1/2 bg-indigo-50 items-center justify-center">
                 <img src="" alt="" />
             </div>
         </div>

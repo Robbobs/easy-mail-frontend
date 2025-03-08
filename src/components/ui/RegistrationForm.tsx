@@ -7,13 +7,18 @@ import Button from "../Button";
 
 export default function RegistrationForm() {
   const { register, handleSubmit, formState: { errors } } = useForm<Account>();
-  const [createAccount, { error }] = useCreateAccountMutation();
+  const [createAccount] = useCreateAccountMutation();
   const navigate = useNavigate();
   
-  const onSubmit: SubmitHandler<Account> = (account: Account) => {
-    createAccount(account)
-    console.log(error);
+  const onSubmit: SubmitHandler<Account> = async (account: Account) => {
+    try{
+      await createAccount(account).unwrap();
+      navigate("/signIn");
+    } catch (err){
+      console.log(err);
+    }
   };
+  
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate(-1);
@@ -28,7 +33,7 @@ export default function RegistrationForm() {
         </div>
         <div className="w-full flex flex-col">
           <InputField label="Last Name" {...register("last_name", { required: true })} />
-          {errors.last_name && <span>Surname is required</span>}
+          {errors.last_name && <span>Last name is required</span>}
         </div>
       </div>
       <div className="py-5 w-full flex flex-col">
