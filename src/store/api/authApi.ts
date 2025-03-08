@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { Auth } from "../../types/Auth";
-import { logout, setAuth } from "../slices/authSlice";
+import { setAuth } from "../slices/authSlice";
 
 interface authLife {
     isAuthenticated: boolean
@@ -12,6 +12,7 @@ export const authApi = createApi({
         baseUrl: 'http://localhost:8000/api',
         credentials: 'include' 
     }),
+    tagTypes: ["Auth"],
     endpoints: (builder) => ({
         login: builder.mutation<Auth, Auth>({ 
             query: (credentials) => ({
@@ -22,25 +23,30 @@ export const authApi = createApi({
             }),
             async onQueryStarted(_, { dispatch, queryFulfilled }) {
                 queryFulfilled.then(() => dispatch(setAuth(true)))
-            } 
+            },
+            invalidatesTags: [{type: "Auth"}]
         }),
+
         logout: builder.mutation<void, void>({
             query: () => ({
                 url: `/logout`,
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-          }),
+            }),
             async onQueryStarted(_, { dispatch, queryFulfilled }){
-                queryFulfilled.then(() => dispatch(logout()))
-            }
+                queryFulfilled.then(() => dispatch(setAuth(false)))
+            },
+            invalidatesTags: [{type: "Auth"}]
         }),
+
         checkSession: builder.query<authLife, void>({
             query: () => `/session`,
             async onQueryStarted(_, {dispatch, queryFulfilled}){
                 queryFulfilled
                     .then(({ data }) => dispatch(setAuth(data.isAuthenticated)))
                     .catch(() => dispatch(setAuth(false)));
-            }
+            },
+            providesTags: [{type: "Auth"}]
         })
     })
 });
