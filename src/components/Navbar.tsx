@@ -10,8 +10,8 @@ export default function Navbar(){
     const [logout] = useLogoutMutation();
 
     const handleLogout = () => {
-        logout()
-        navigate("/")
+        logout();
+        navigate("/");
     }
 
     const email: Option[] = [

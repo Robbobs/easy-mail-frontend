@@ -1,3 +1,4 @@
+import Link from "../components/Link";
 import Title from "../components/Title";
 import LoginForm from "../components/ui/LoginForm";
 
@@ -11,12 +12,12 @@ export default function SignInPage() {
                 <Title className="text-center">Login</Title>
                 <LoginForm />
 
-                <p className="text-center text-gray-600 mt-4">
-                    Don't have an account?{" "}
-                    <a href="/login" className="text-indigo-600 font-semibold hover:underline">
-                        Sign up
-                    </a>
-                </p>
+            <p className="text-center text-gray-600 mt-4">
+                Don't have an account?{" "}
+                <Link to="/signUp" className="font-semibold hover:underline">
+                    Sign up
+                </Link>
+            </p>
             </div>
 
             <div className="hidden md:flex w-1/2 bg-indigo-50 items-center justify-center">

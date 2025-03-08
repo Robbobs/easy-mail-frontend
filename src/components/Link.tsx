@@ -15,7 +15,7 @@ export default function Link({ to, children, className, activeClassName }: LinkP
   const location = useLocation();
   
   const classes = twMerge(
-    'text-blue-500',
+    'text-indigo-600',
     classNames(className, location.pathname === to && activeClassName)
   );
 

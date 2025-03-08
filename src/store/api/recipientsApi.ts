@@ -4,19 +4,16 @@ import type { Recipient } from "../../types/Recipient";
 
 export const recipientsApi = createApi({
     reducerPath: 'recipients',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api' }),
+    baseQuery: fetchBaseQuery({ 
+        baseUrl: 'http://localhost:8000/api',
+        credentials: 'include' 
+    }),
     endpoints: (builder) => ({
         getRecipients: builder.query<PaginatedResponse<Recipient[]>, void>({
-            query: () =>  ({
-              url: `/recipient`,
-              credentials: 'include' 
-            })
+            query: () =>  `/recipient` 
         }),
         getRecipient: builder.query<Recipient, number>({
-            query: (id) => ({
-                url: `/recipient/${id}`,
-                credentials: 'include'
-            }) 
+            query: (id) => `/recipient/${id}`         
         })
     }),
 });
