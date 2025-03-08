@@ -5,9 +5,7 @@ import { Outlet } from "react-router-dom";
 
 export default function Root() {
     const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
-    const hasCheckedSession = useAppSelector((state) => state.auth.hasCheckedSession);
-
-    useCheckSessionQuery(undefined, { skip: hasCheckedSession });
+    useCheckSessionQuery();
 
     return (
         <div className="bg-[url(/stay-current-with-email_1300_867.png)] bg-cover">
