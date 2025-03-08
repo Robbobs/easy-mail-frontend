@@ -11,6 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   danger?: boolean;
   outline?: boolean;
   rounded?: boolean;
+  isLoading?: boolean;
 }
 
 export default function Button({
@@ -22,6 +23,7 @@ export default function Button({
     danger, 
     outline, 
     rounded,
+    isLoading,
     ...rest
 }: ButtonProps){
     const selectedVariants = [primary, secondary, success, warning, danger].filter(Boolean).length;
@@ -50,6 +52,12 @@ export default function Button({
             "text-red-500 hover:text-red-700": outline && danger
         })
     );
+
+    const loadingAnimation = (
+      <svg className="mr-3 size-5 animate-spin" viewBox="0 0 24 24">Processing...</svg>
+    )
     
-    return <button {...rest} className={classes}>{ children }</button>;
+    return <button {...rest} className={classes}>
+      { isLoading ? loadingAnimation : children }
+    </button>;
 }
