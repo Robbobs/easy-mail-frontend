@@ -1,18 +1,23 @@
 import { useCreateAccountMutation } from "../../store/api/accountApi";
 import { useForm, SubmitHandler } from "react-hook-form";
+import type { Account } from "../../types/Account";
+import { useNavigate } from "react-router-dom";
 import InputField from "../InputField";
 import Button from "../Button";
-import type { Account } from "../../types/Account";
 
 export default function RegistrationForm() {
   const { register, handleSubmit, formState: { errors } } = useForm<Account>();
-  
-   const [createAccount, { error }] = useCreateAccountMutation();
+  const [createAccount, { error }] = useCreateAccountMutation();
+  const navigate = useNavigate();
   
   const onSubmit: SubmitHandler<Account> = (account: Account) => {
     createAccount(account)
     console.log(error);
   };
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    navigate(-1);
+  }
 
   return(
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -40,9 +45,14 @@ export default function RegistrationForm() {
           {errors.password && <span>Password confirmation is required</span>}
         </div>
       </div>
-      <Button success rounded outline>
-        Submit
-      </Button>
+      <div className="flex gap-2">
+        <Button className="w-full" success rounded outline>
+          Submit
+        </Button>
+        <Button onClick={e => handleClick(e)} className="w-full" primary rounded>
+          Back
+        </Button>
+      </div>
     </form>
   );
 }
