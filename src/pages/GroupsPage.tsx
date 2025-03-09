@@ -16,9 +16,9 @@ export default function GroupsPage(){
     const modal = (
         <Modal onClose={() => setIsOpen(false)}>
             <h1 className="text-6xl text-center">
-                Add a new recipient
+                Add a new Group
             </h1>
-            <InputField label="Name"/>
+            <InputField label="Title"/>
             <InputField label="Members" />
             <Button className="" rounded> 
                 Add

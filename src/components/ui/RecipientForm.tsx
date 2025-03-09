@@ -13,6 +13,7 @@ export default function RecipientForm() {
 
 
     return(
+        //TODO: modify recipients api and form to handle creation of multiple recipients at the same time
         <form className="w-98" onSubmit={handleSubmit(onSubmit)}>
 
             <Title className="text-xl text-center">Add a new Recipient</Title>
@@ -27,8 +28,11 @@ export default function RecipientForm() {
                 {errors.email && <span>Email is required</span>}
             </div>
             <div className="flex gap-2">
+                <Button className="w-full" primary rounded outline>
+                    Add
+                </Button>
                 <Button className="w-full" success rounded outline>
-                    Submit
+                    Save
                 </Button>
             </div>
         </form>
