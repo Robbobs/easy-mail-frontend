@@ -14,7 +14,7 @@ export const authApi = createApi({
     }),
     tagTypes: ["Auth"],
     endpoints: (builder) => ({
-        login: builder.mutation<Auth, Auth>({ 
+        login: builder.mutation<Partial<Auth>, Auth>({ 
             query: (credentials) => ({
                 url: `/login`,
                 method: "POST",

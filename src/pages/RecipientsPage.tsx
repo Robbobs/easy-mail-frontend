@@ -7,18 +7,14 @@ import { IoPersonAdd } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
 import type { Config } from "../components/Table";
 import type { Recipient } from "../types/Recipient";
-import InputField from "../components/InputField";
+import RecipientForm from "../components/ui/RecipientForm";
 
 export default function RecipientsPage(){
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const modal = (
         <Modal onClose={() => setIsOpen(false)}>
-            <h1 className="text-6xl text-center">
-                Add a new recipient
-            </h1>
-            <InputField label="Name"/>
-            <InputField label="Email" />
+            <RecipientForm />
         </Modal>
     )
 

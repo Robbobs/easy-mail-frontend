@@ -5,8 +5,8 @@ interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
 }
 
-export default function Title({title, children, className, ...rest}: TitleProps) {
-  const classes = classNames(className, "text-6xl font-bold");
+export default function Title({children, className, ...rest}: TitleProps) {
+  const classes = classNames("text-6xl font-bold", className);
 
   return <h1 className={classes} {...rest}>{children}</h1>
 }

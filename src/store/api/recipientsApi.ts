@@ -10,10 +10,20 @@ export const recipientsApi = createApi({
     }),
     endpoints: (builder) => ({
         getRecipients: builder.query<PaginatedResponse<Recipient[]>, void>({
-            query: () =>  `/recipient` 
-        }),
+            query: () =>  `/recipient`
+        }), 
+
         getRecipient: builder.query<Recipient, number>({
-            query: (id) => `/recipient/${id}`         
+            query: (id) => `/recipient/${id}`
+        }),
+        
+        createRecipient: builder.mutation<Recipient, Partial<Recipient>>({
+            query: (recipient) => ({
+                url: '/recipient',
+                method: 'POST',
+                body: recipient,
+                headers: { "Content-Type": "application/json" },
+            }),
         })
     }),
 });
