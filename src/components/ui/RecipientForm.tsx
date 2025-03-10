@@ -1,19 +1,26 @@
+import { useCreateRecipientMutation } from "../../store/api/recipientsApi";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Recipient } from "../../types/Recipient";
 import InputField from "../InputField";
 import Button from "../Button";
 import Title from "../Title";
+import Toast from "../Toast";
 
 export default function RecipientForm() {
     const { register, handleSubmit, formState: { errors } } = useForm<Recipient>();
+    const [ createRecipient ] = useCreateRecipientMutation();
 
     const onSubmit: SubmitHandler<Recipient> = async (recipient: Recipient) => {
-        console.log(recipient);
+        try {
+            createRecipient(recipient).unwrap(); 
+            <Toast success>Recipient created successfully</Toast>
+
+        } catch{
+            <Toast warning>Failed to create recipient</Toast>
+        } 
     }
 
-
     return(
-        //TODO: modify recipients api and form to handle creation of multiple recipients at the same time
         <form className="w-98" onSubmit={handleSubmit(onSubmit)}>
 
             <Title className="text-xl text-center">Add a new Recipient</Title>
