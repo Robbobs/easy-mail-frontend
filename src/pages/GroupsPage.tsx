@@ -7,22 +7,14 @@ import { FaPencilAlt } from "react-icons/fa";
 import { IoPersonAdd } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
 import type { Config } from "../components/Table";
-import InputField from "../components/InputField";
-
+import GroupForm from "../components/ui/GroupForm";
 
 export default function GroupsPage(){
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const modal = (
         <Modal onClose={() => setIsOpen(false)}>
-            <h1 className="text-6xl text-center">
-                Add a new Group
-            </h1>
-            <InputField label="Title"/>
-            <InputField label="Members" />
-            <Button className="" rounded> 
-                Add
-            </Button>
+            <GroupForm /> 
         </Modal>
     )
 

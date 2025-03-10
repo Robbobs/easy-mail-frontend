@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { PaginatedResponse } from "../../types/PaginatedResponse";
+import type { PaginatedResponse } from "../../types/PaginatedResponse";
 import type { Recipient } from "../../types/Recipient";
 
 export const recipientsApi = createApi({

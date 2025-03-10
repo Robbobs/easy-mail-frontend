@@ -1,6 +1,6 @@
 import { useCreateRecipientMutation } from "../../store/api/recipientsApi";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Recipient } from "../../types/Recipient";
+import type { Recipient } from "../../types/Recipient";
 import InputField from "../InputField";
 import Button from "../Button";
 import Title from "../Title";
