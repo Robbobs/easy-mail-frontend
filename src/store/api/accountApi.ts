@@ -4,13 +4,13 @@ import type { Account } from "../../types/Account";
 export const accountApi = createApi({
     reducerPath: 'account',
     baseQuery: fetchBaseQuery({ 
-        baseUrl: 'http://localhost:8000/api',
+        baseUrl: 'http://localhost:8000/api/',
         credentials: 'include' 
     }),
     endpoints: (builder) => ({
         createAccount: builder.mutation<Account, Partial<Account>>({
             query: (newAccount) => ({
-                url: `/account`,
+                url: `account/`,
                 method: "POST",
                 body: newAccount,
                 headers: { "Content-Type": "application/json" },

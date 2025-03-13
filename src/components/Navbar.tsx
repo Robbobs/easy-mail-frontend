@@ -13,7 +13,9 @@ export default function Navbar(){
         try {
             await logout().unwrap();
             navigate("/");
-        } catch{}
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     const email: Option[] = [

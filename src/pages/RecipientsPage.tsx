@@ -7,18 +7,16 @@ import { IoPersonAdd } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
 import type { Config } from "../components/Table";
 import type { Recipient } from "../types/Recipient";
-import InputField from "../components/InputField";
+import RecipientForm from "../components/ui/RecipientForm";
+import { useGetRecipientsQuery } from "../store/api/recipientsApi";
 
 export default function RecipientsPage(){
     const [isOpen, setIsOpen] = useState<boolean>(false);
-
+    const { data } = useGetRecipientsQuery();
+    
     const modal = (
         <Modal onClose={() => setIsOpen(false)}>
-            <h1 className="text-6xl text-center">
-                Add a new recipient
-            </h1>
-            <InputField label="Name"/>
-            <InputField label="Email" />
+            <RecipientForm />
         </Modal>
     )
 
@@ -54,21 +52,6 @@ export default function RecipientsPage(){
         }
     ];
 
-    //TODO: Remove test data!
-    const data: Recipient[] = [
-        {
-            name: 'Roberta',
-            email: 'robertatest@gmail.com',
-            groups: 'Kukinators, Mozinhus'
-        },
-        {
-            name: 'Rodrigo',
-            email: 'rodrigotest@gmail.com',
-            groups: 'Mozinhus',
-            created_at: new Date()
-        }
-    ];
-
     const keyFn = (recipient: Recipient): string => {
         return recipient.email
     }
@@ -86,7 +69,7 @@ export default function RecipientsPage(){
             </div>
 
             <div className="flex justify-center">
-                <Table config={config} data={data} keyFn={keyFn} />
+                <Table config={config} data={data?.results} keyFn={keyFn} />
             </div>
         </div>
     ) 

@@ -1,10 +1,13 @@
 import { redirect } from "react-router-dom";
 import { store } from "../../store";
+import { authApi } from "../../store/api/authApi";
 
 export async function notAuthLoader() {
-  if (!store.getState().auth.isAuthenticated) {
-    return null;
-  }
+    const result = await store.dispatch(authApi.endpoints.checkSession.initiate()).unwrap();
+    
+    if (result.isAuthenticated) {
+        return redirect("/recipients");
+    }
 
-  return redirect("/recipients");
+    return null;
 }

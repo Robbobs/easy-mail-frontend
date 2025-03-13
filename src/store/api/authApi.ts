@@ -9,14 +9,14 @@ interface authLife {
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({ 
-        baseUrl: 'http://localhost:8000/api',
+        baseUrl: 'http://localhost:8000/api/',
         credentials: 'include' 
     }),
     tagTypes: ["Auth"],
     endpoints: (builder) => ({
-        login: builder.mutation<Auth, Auth>({ 
+        login: builder.mutation<Partial<Auth>, Auth>({ 
             query: (credentials) => ({
-                url: `/login`,
+                url: `login/`,
                 method: "POST",
                 body: credentials,
                 headers: { "Content-Type": "application/json" },
@@ -29,7 +29,7 @@ export const authApi = createApi({
 
         logout: builder.mutation<void, void>({
             query: () => ({
-                url: `/logout`,
+                url: `logout/`,
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
             }),
@@ -40,7 +40,7 @@ export const authApi = createApi({
         }),
 
         checkSession: builder.query<authLife, void>({
-            query: () => `/session`,
+            query: () => `session/`,
             async onQueryStarted(_, {dispatch, queryFulfilled}){
                 queryFulfilled
                     .then(({ data }) => dispatch(setAuth(data.isAuthenticated)))

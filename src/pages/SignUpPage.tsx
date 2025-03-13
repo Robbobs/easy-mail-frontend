@@ -9,7 +9,7 @@ export default function SignUpPage() {
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-indigo-600">easy mail</h1>
                 </div>    
-                <Title className="text-center">Registration</Title>
+                <Title className="text-center mb-10">Registration</Title>
                 <RegistrationForm />
 
                 <p className="text-center text-gray-600 mt-4">
@@ -20,8 +20,8 @@ export default function SignUpPage() {
                 </p>
             </div>
 
-            <div className="hiden md:flex w-1/2 bg-indigo-50 items-center justify-center">
-                <img src="" alt="" />
+            <div className="hidden md:flex w-1/2 bg-indigo-50 items-center justify-center">
+                <img src="src\assets\email-phone.jpg" alt="girl using mail with her phone" />   
             </div>
         </div>
     );

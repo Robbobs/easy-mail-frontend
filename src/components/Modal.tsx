@@ -1,35 +1,35 @@
-import ReactDOM from 'react-dom';
-import { useEffect, ReactNode } from 'react';
+import { useEffect, ReactNode } from "react";
+import { GoX } from "react-icons/go";
+import ReactDOM from "react-dom";
 
 interface ModalProps {
     onClose: () => void;
     children: ReactNode;
-    actionBar?: ReactNode;
 }
 
-export default function Modal({ onClose, children, actionBar }: ModalProps){
+export default function Modal({ onClose, children }: ModalProps) {
     useEffect(() => {
         document.body.classList.add("overflow-hidden");
-        
-        return () => {
-            document.body.classList.remove("overflow-hidden");
-        }; 
 
+        return () => document.body.classList.remove("overflow-hidden");
     }, []);
 
-    const modalContainer = document.querySelector('.modal-container');
-    if(!modalContainer) return;
+    const modalContainer = document.querySelector(".modal-container");
+    if (!modalContainer) return null;
 
     return ReactDOM.createPortal(
-        <div className="text-[#98abfc]">
-            <div onClick={onClose} className="fixed inset-0 backdrop-blur bg-[#98abfc]/5"></div>
-            <div className="fixed inset-40 bg-[#1b2037] p-10 rounded">
-                <div className="flex flex-col justify-between h-full">
-                    { children }
-                    <div className="flex justify-end"> 
-                        { actionBar }
-                    </div>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+            <div className="relative bg-[#1b2037] text-white rounded-lg shadow-lg p-6 
+                            flex flex-col gap-4 overflow-hidden">
+                
+                <button onClick={onClose} className="absolute top-4 right-4">
+                    <GoX className="text-3xl"/>
+                </button>
+
+                <div className="max-h-[70vh] overflow-auto p-2">
+                    {children}
                 </div>
+            
             </div>
         </div>,
         modalContainer

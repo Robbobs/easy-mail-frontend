@@ -8,12 +8,12 @@ export interface Config<T>{
 }
 
 export interface TableProps<T> {
-    data: T[];
+    data: T[] | undefined;
     config: Config<T>[];
     keyFn: (item: T) => string | number;
 }
 
-export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
+export default function Table<T>({ data, config, keyFn }: TableProps<T>) {    
     const renderedHeaders = config.map((header) => {
 
         if (header.header){
@@ -23,7 +23,7 @@ export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
         return <th key={ header.label }>{ header.label }</th>     
     });
 
-    const renderedRows = data.map((rowData) => {
+    const renderedRows = data?.map((rowData) => {
         
         const renderedCells = config.map((column) => {
             return (
@@ -40,7 +40,6 @@ export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
             </tr>
         )
     });
-
     
     return(
         <table className="table-auto border-spacing-2 text-left">
@@ -49,7 +48,16 @@ export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
                     { renderedHeaders }
                 </tr>
             </thead>
-            <tbody>{ renderedRows }</tbody>
+            <tbody>
+                {renderedRows && renderedRows.length > 0 ? renderedRows : (
+                    <tr>
+                        <td colSpan={config.length} className="py-2 text-center">
+                            No data Retrieved
+                        </td>
+                    </tr>
+                )}
+            </tbody>
+
         </table>
     )
 }
