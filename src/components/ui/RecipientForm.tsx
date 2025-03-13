@@ -12,7 +12,7 @@ export default function RecipientForm() {
 
     const onSubmit: SubmitHandler<Recipient> = async (recipient: Recipient) => {
         try {
-            createRecipient(recipient).unwrap(); 
+            createRecipient(recipient).unwrap();
             <Toast success>Recipient created successfully</Toast>
 
         } catch{

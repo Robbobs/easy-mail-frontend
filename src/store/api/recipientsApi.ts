@@ -8,13 +8,16 @@ export const recipientsApi = createApi({
         baseUrl: 'http://localhost:8000/api/',
         credentials: 'include' 
     }),
+    tagTypes: ['Recipients'],
     endpoints: (builder) => ({
         getRecipients: builder.query<PaginatedResponse<Recipient>, void>({
-            query: () =>  `recipient/`
+            query: () =>  `recipient/`,
+            providesTags: [{type: "Recipients"}]
         }), 
 
         getRecipient: builder.query<Recipient, number>({
-            query: (id) => `recipient/${id}/`
+            query: (id) => `recipient/${id}/`,
+            providesTags: [{type: "Recipients"}]
         }),
         
         createRecipient: builder.mutation<Recipient, Partial<Recipient>>({
@@ -24,6 +27,7 @@ export const recipientsApi = createApi({
                 body: recipient,
                 headers: { "Content-Type": "application/json" },
             }),
+            invalidatesTags: [{type: "Recipients"}]
         })
     }),
 });
