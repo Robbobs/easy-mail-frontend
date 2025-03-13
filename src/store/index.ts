@@ -1,6 +1,5 @@
 import { recipientsApi } from "./api/recipientsApi";
 import { configureStore } from "@reduxjs/toolkit";
-import  authReducer  from "./slices/authSlice";
 import { accountApi } from "./api/accountApi"; 
 import { groupApi } from "./api/groupsApi";
 import { authApi } from "./api/authApi";
@@ -11,7 +10,6 @@ export const store = configureStore({
         [accountApi.reducerPath]: accountApi.reducer,
         [groupApi.reducerPath]: groupApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
-        auth: authReducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware()

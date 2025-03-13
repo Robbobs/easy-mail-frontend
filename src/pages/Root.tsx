@@ -1,14 +1,14 @@
-import { useAppSelector } from "../custom-hooks/storeHooks";
 import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
+import { useCheckSessionQuery } from "../store/api/authApi";
 
 export default function Root() {
-    const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
+    const { data } = useCheckSessionQuery();
 
     return (
         <div className="bg-[url(/src/assets/stay-current-with-email_1300_867.png)] bg-cover">
             <div className="bg-[#1b2037] h-screen w-screen container mx-auto text-[#98abfc] shadow-lg">
-                {isAuthenticated && <Navbar />}
+                {data?.isAuthenticated && <Navbar />}
                 <Outlet />
             </div>
         </div>
