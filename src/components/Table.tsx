@@ -20,19 +20,18 @@ export default function Table<T>({ data, config, keyFn }: TableProps<T>) {
             return <Fragment key={header.label}>{header.header()}</Fragment>;
         }
 
-        return <th key={ header.label }>{ header.label }</th>     
+        return <th className="pr-40" key={ header.label }>{ header.label }</th>     
     });
 
     const renderedRows = data?.map((rowData) => {
         
         const renderedCells = config.map((column) => {
             return (
-                <td className="py-2 pr-20" key={column.label}>
+                <td className="py-2" key={column.label}>
                     {column.render(rowData)}
                 </td>
             );
         });       
-
 
         return(
             <tr className="border-b" key={keyFn(rowData)}>

@@ -28,6 +28,14 @@ export const recipientsApi = createApi({
                 headers: { "Content-Type": "application/json" },
             }),
             invalidatesTags: [{type: "Recipients"}]
+        }),
+
+        deleteRecipient: builder.mutation<void, number>({
+            query: (id) => ({
+                url: `recipient/${id}/`,
+                method: 'DELETE'
+            }),
+            invalidatesTags: [{type: "Recipients"}]
         })
     }),
 });
